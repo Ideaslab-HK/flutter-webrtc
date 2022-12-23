@@ -1162,7 +1162,9 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
       for (int i = 0; i < devices.length; i++) {
         AudioDeviceInfo device = devices[i];
         if (device.getType() == AudioDeviceInfo.TYPE_BUILTIN_MIC || device.getType() == AudioDeviceInfo.TYPE_BLUETOOTH_SCO ||
-                device.getType() == AudioDeviceInfo.TYPE_WIRED_HEADSET) {
+                device.getType() == AudioDeviceInfo.TYPE_WIRED_HEADSET ||
+                device.getType() == AudioDeviceInfo.TYPE_USB_DEVICE
+        ) {
           int type = (device.getType() & 0xFF);
           String label = Build.VERSION.SDK_INT < Build.VERSION_CODES.P ? String.valueOf(i) : device.getAddress();
           ConstraintsMap audio = new ConstraintsMap();
